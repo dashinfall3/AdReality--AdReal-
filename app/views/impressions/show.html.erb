@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @impression.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @impression.longitude %>
+</p>
+
+<p>
+  <b>Developer:</b>
+  <%= @impression.developer %>
+</p>
+
+<p>
+  <b>Ad:</b>
+  <%= @impression.ad %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @impression.company %>
+</p>
+
+<p>
+  <b>Store:</b>
+  <%= @impression.store %>
+</p>
+
+<p>
+  <b>User info:</b>
+  <%= @impression.user_info %>
+</p>
+
+
+<%= link_to 'Edit', edit_impression_path(@impression) %> |
+<%= link_to 'Back', impressions_path %>

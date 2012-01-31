@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Developer:</b>
+  <%= @click.developer %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @click.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @click.longitude %>
+</p>
+
+<p>
+  <b>User info:</b>
+  <%= @click.user_info %>
+</p>
+
+<p>
+  <b>Ad:</b>
+  <%= @click.ad %>
+</p>
+
+<p>
+  <b>Advertiser:</b>
+  <%= @click.advertiser %>
+</p>
+
+<p>
+  <b>Store:</b>
+  <%= @click.store %>
+</p>
+
+
+<%= link_to 'Edit', edit_click_path(@click) %> |
+<%= link_to 'Back', clicks_path %>

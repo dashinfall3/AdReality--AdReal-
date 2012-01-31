@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  headline: MyString
+  body: MyString
+  advertiser_id: 1
+  impression_count: 1
+  click_count: 1
+  category: MyString
+
+two:
+  name: MyString
+  headline: MyString
+  body: MyString
+  advertiser_id: 1
+  impression_count: 1
+  click_count: 1
+  category: MyString

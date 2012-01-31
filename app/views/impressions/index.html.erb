@@ -1,0 +1,35 @@
+<h1>Listing impressions</h1>
+
+<table>
+  <tr>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Developer</th>
+    <th>Ad</th>
+    <th>Company</th>
+    <th>Store</th>
+    <th>User info</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @impressions.each do |impression| %>
+  <tr>
+    <td><%= impression.latitude %></td>
+    <td><%= impression.longitude %></td>
+    <td><%= impression.developer %></td>
+    <td><%= impression.ad %></td>
+    <td><%= impression.company %></td>
+    <td><%= impression.store %></td>
+    <td><%= impression.user_info %></td>
+    <td><%= link_to 'Show', impression %></td>
+    <td><%= link_to 'Edit', edit_impression_path(impression) %></td>
+    <td><%= link_to 'Destroy', impression, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Impression', new_impression_path %>

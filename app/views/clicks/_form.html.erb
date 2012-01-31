@@ -1,0 +1,45 @@
+<%= form_for(@click) do |f| %>
+  <% if @click.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@click.errors.count, "error") %> prohibited this click from being saved:</h2>
+
+      <ul>
+      <% @click.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :developer %><br />
+    <%= f.text_field :developer %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :user_info %><br />
+    <%= f.text_field :user_info %>
+  </div>
+  <div class="field">
+    <%= f.label :ad %><br />
+    <%= f.text_field :ad %>
+  </div>
+  <div class="field">
+    <%= f.label :advertiser %><br />
+    <%= f.text_field :advertiser %>
+  </div>
+  <div class="field">
+    <%= f.label :store %><br />
+    <%= f.text_field :store %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  developer: MyString
+  latitude: 9.99
+  longitude: 9.99
+  user_info: MyString
+  ad: 1
+  advertiser: 1
+  store: 1
+
+two:
+  developer: MyString
+  latitude: 9.99
+  longitude: 9.99
+  user_info: MyString
+  ad: 1
+  advertiser: 1
+  store: 1
