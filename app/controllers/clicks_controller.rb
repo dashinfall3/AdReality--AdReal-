@@ -1,4 +1,5 @@
 class ClicksController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
   # GET /clicks
   # GET /clicks.xml
   def index

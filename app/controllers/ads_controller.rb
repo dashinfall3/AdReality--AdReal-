@@ -1,4 +1,5 @@
 class AdsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
   # GET /ads
   # GET /ads.xml
   def index
@@ -7,6 +8,7 @@ class AdsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @ads }
+      format.json { render :json => @ads }
     end
   end
 
@@ -18,6 +20,7 @@ class AdsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @ad }
+      format.json 
     end
   end
 

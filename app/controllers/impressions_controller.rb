@@ -1,4 +1,5 @@
 class ImpressionsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
   # GET /impressions
   # GET /impressions.xml
   def index

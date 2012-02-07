@@ -1,4 +1,5 @@
 class StoresController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
   # GET /stores
   # GET /stores.xml
   def index
