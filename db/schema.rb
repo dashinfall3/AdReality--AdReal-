@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131062223) do
+ActiveRecord::Schema.define(:version => 20120221011058) do
 
   create_table "ad_store_relationships", :force => true do |t|
     t.integer  "ad_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20120131062223) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "advertisers", ["email"], :name => "index_advertisers_on_email", :unique => true
@@ -101,8 +102,8 @@ ActiveRecord::Schema.define(:version => 20120131062223) do
   end
 
   create_table "stores", :force => true do |t|
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "state"
     t.integer  "zip"
     t.string   "city"
@@ -110,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20120131062223) do
     t.integer  "advertiser_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
 end

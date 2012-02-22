@@ -1,0 +1,13 @@
+<% if developer_signed_in? %>
+    Yes, signed in as <%= current_developer.email %>. Not you?
+    <%= link_to "Sign out", destroy_developer_session_path %>
+    <h3>Clicks</h3>
+    	<%= @clicks %>
+    <h3>Impressions</h3>
+    	<%= @impressions %>    
+    <h3>Advertisers on your app</h3>
+    	<%= render :partial => 'shared/advertiser', :collection => @advertisers %>
+<% else %>
+  	No, not right now.
+    <%= link_to "Sign up", new_developer_registration_path %> or <%= link_to "sign in", new_developer_session_path %>
+<% end %>

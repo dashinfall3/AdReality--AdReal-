@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_advertiser!, :except => [:show, :index]
   # GET /ads
   # GET /ads.xml
   def index
@@ -23,9 +23,56 @@ class AdsController < ApplicationController
       format.json 
     end
   end
+  
+  def return
+    developer_id = params[:developer_id]
+    @category = params[:category]
+    latitude = params[:latitude].to_f
+    longitude = params[:longitude].to_f
+    user_info = params[:user_info]
+    
+    closest_store = Store.near([latitude, longitude], 10000).first
+    @ad = closest_store.ads.first
+    @distance = closest_store.distance.round(1)
+    #http://localhost:3000/ads/1/sports/36.77219/-122.129/young.json Wahoo!
+
+    #create the impression of serving the ad
+	developer = Developer.find(developer_id)
+	@impression = developer.impressions.create(:latitude => latitude , :longitude => longitude, :developer_id => developer_id, :store_id => closest_store.id, :ad_id => @ad.id, :user_info => user_info)
+
+    #API responds with ad in json, should also give store information
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @ad }
+      format.json 
+    end
+  end
+  
+  def clicks
+    developer_id = params[:developer_id]
+    @category = params[:category]
+    latitude = params[:latitude].to_f
+    longitude = params[:longitude].to_f
+    user_info = params[:user_info]
+
+	#need to pass a variable containing the id of the ad being shown on impression above! Then find the ad to store it in the click entry.
+	@ad = Ad.find(2)
+	
+    #create the click
+	developer = Developer.find(developer_id)
+	developer.clicks.create(:latitude => latitude , :longitude => longitude, :store_id => closest_store.id, :ad_id => @ad.id, :user_info => user_info)
+
+    #API responds with ad in json, should also give store information
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @ad }
+      format.json 
+    end
+  end
 
   # GET /ads/new
   # GET /ads/new.xml
+  
   def new
     @ad = Ad.new
 
@@ -36,6 +83,7 @@ class AdsController < ApplicationController
   end
 
   # GET /ads/1/edit
+  
   def edit
     @ad = Ad.find(params[:id])
   end
@@ -43,8 +91,7 @@ class AdsController < ApplicationController
   # POST /ads
   # POST /ads.xml
   def create
-    @ad = Ad.new(params[:ad])
-
+    @ad = current_advertiser.ads.new(params[:ad])
     respond_to do |format|
       if @ad.save
         format.html { redirect_to(@ad, :notice => 'Ad was successfully created.') }

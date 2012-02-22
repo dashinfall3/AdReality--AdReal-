@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_advertiser!, :except => [:show, :index]
   # GET /stores
   # GET /stores.xml
   def index
@@ -41,7 +41,7 @@ class StoresController < ApplicationController
   # POST /stores
   # POST /stores.xml
   def create
-    @store = Store.new(params[:store])
+    @store = current_advertiser.stores.new(params[:store])
 
     respond_to do |format|
       if @store.save

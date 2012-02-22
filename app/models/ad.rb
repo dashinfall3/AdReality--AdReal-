@@ -1,6 +1,6 @@
 class Ad < ActiveRecord::Base
   #Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :headline, :body, :advertiser_id, :impression_count, :click_count, :category
+  attr_accessible :name, :headline, :body, :impression_count, :click_count, :category
   
   #connecting ad model directly to clicks and impressions for ads for faster count up on dashboard
   has_many :clicks

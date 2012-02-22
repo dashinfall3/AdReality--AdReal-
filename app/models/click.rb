@@ -3,4 +3,5 @@ class Click < ActiveRecord::Base
 	belongs_to :developer
 	belongs_to :advertiser
 	belongs_to :ad
+	belongs_to :store
 end
