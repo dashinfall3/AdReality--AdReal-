@@ -8,6 +8,8 @@ AdReality::Application.routes.draw do
 
   match 'ads/:developer_id/:category/:latitude/:longitude/:user_info', :to => 'ads#click', :constraints  => { :latitude => /[0-z\.-]+/ , :longitude => /[0-z\.-]+/ }, :as => :developer_id, :as => :category, :as => :latitude, :as => :longitude, :as => :category, :as => :user_info
   
+  #match 'ads/:developer_id/:category/:latitude/:longitude/:user_info', :to => 'ads#click', :constraints  => { :latitude => /[0-z\.-]+/ , :longitude => /[0-z\.-]+/ }, :as => :developer_id, :as => :category, :as => :latitude, :as => :longitude, :as => :category, :as => :user_info
+  
   devise_for :advertisers
 
   devise_for :developers

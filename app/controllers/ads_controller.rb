@@ -31,6 +31,7 @@ class AdsController < ApplicationController
     longitude = params[:longitude].to_f
     user_info = params[:user_info]
     
+    @closest_store = Store.near([latitude, longitude], 10000).first
     closest_store = Store.near([latitude, longitude], 10000).first
     @ad = closest_store.ads.first
     @distance = closest_store.distance.to_f.round(1)

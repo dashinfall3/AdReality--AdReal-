@@ -1,14 +1,25 @@
-object @impression
+node("layer") { "wikihistory" }
+
+object false
 
 #sharing store and distance that the ad is bringing the user to
-child :store do
-	attributes :name, :address, :latitude, :longitude
-	node(:distance) { @distance }
+child @ad => :hotspots do
+	attributes :id
+	node :text do
+		{:title => @ad.headline, :description => @ad.body, :footnote => @ad.category }
+	end
+	glue @closest_store do
+		node :anchor do
+			{:lat => @closest_store.latitude, :long => @closest_store.longitude }
+		end
+	end	
 end
 
-#actual ad to show for the store that is close by the user
-child :ad do
-		attributes :id, :name, :headline, :body, :category
-end
+
+
+
+
+node("errorCode") { 0 }
+node("errorStrng") { "No POI found. Please increase the search range to try again." }
 
 
