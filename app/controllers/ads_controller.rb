@@ -33,8 +33,10 @@ class AdsController < ApplicationController
     
     closest_store = Store.near([latitude, longitude], 10000).first
     @ad = closest_store.ads.first
-    @distance = closest_store.distance.round(1)
+    @distance = closest_store.distance.to_f.round(1)
     #http://localhost:3000/ads/1/sports/36.77219/-122.129/young.json Wahoo!
+    #http://adreality.heroku.com/ads/1/sports/36.77219/-122.129/young.json
+    #AdStoreRelationship.create(:ad_id => 1, :store_id => 1)
 
     #create the impression of serving the ad
 	developer = Developer.find(developer_id)
