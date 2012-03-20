@@ -10,7 +10,7 @@ child @ad => :hotspots do
 	end
 	glue @closest_store do
 		node :anchor do
-			{:geolocation => {:lat => @closest_store.latitude.to_i, :lon => @closest_store.longitude.to_i }}
+			{:lat => @closest_store.latitude.to_i, :lon => @closest_store.longitude.to_i }
 		end
 	end	
 end
