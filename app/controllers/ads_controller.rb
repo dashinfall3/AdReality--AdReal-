@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-  before_filter :authenticate_advertiser!, :except => [:show, :index]
+  before_filter :authenticate_advertiser!, :except => [:show, :index, :return]
   # GET /ads
   # GET /ads.xml
   def index
