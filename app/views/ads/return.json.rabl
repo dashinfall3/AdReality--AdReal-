@@ -4,7 +4,7 @@ object false
 
 #sharing store and distance that the ad is bringing the user to
 child @ad => :hotspots do
-	attributes :id
+	node ("id") {"2"}
 	node :text do
 		{:title => @ad.headline, :description => @ad.body, :footnote => @ad.category }
 	end
@@ -19,7 +19,7 @@ end
 
 
 
-node("errorCode") { 0 }
+node("errorCode") { 0.to_i }
 node("errorStrng") { "No POI found. Please increase the search range to try again." }
 
 
